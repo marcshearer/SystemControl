@@ -1,5 +1,5 @@
 //
-//  SystemControlApp.swift
+//  System Control App.swift
 //  SystemControl
 //
 //  Created by Marc Shearer on 18/09/2024.

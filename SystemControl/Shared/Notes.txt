@@ -1,0 +1,16 @@
+Note
+====
+
+If xcode fails to install app on device it's normally because info.plist isn't where it expects it to be
+
+To Do Urgently
+==============
+
+Bugs
+====
+
+To Do
+=====
+
+Enhancements
+============
