@@ -9,7 +9,7 @@ import SwiftUI
 
 #if canImport(UIKit)
 
-class MyImage : UIImage {
+class MyImage : UIImage, @unchecked Sendable {
     
     convenience init?(image: Any?) {
         if let image = image as? UIImage, let cgImage = image.cgImage {

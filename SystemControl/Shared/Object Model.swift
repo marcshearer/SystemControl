@@ -276,3 +276,53 @@ public enum EntityAttributeType {
         }
     }
 }
+
+@propertyWrapper struct IntProperty<IntType: BinaryInteger> {
+    let key: String
+    @available(*, unavailable) var wrappedValue: Int {
+        get { fatalError("This wrapper only works on instance properties of classes") }
+        set { fatalError("This wrapper only works on instance properties of classes") }
+    }
+    
+    static subscript<InstanceType:NSManagedObject>(
+        _enclosingInstance instance: InstanceType,
+        wrapped wrappedKeyPath: KeyPath<InstanceType, Int>,
+        storage storageKeyPath: KeyPath<InstanceType, Self>
+    ) -> Int {
+        get {
+            let wrapper = instance[keyPath: storageKeyPath]
+            let key = wrapper.key
+            return instance.value(forKey: key) as! Int
+        }
+        set {
+            let wrapper = instance[keyPath: storageKeyPath]
+            let key = wrapper.key
+            instance.setValue(IntType(newValue), forKey: key)
+        }
+    }
+}
+
+@propertyWrapper struct EnumProperty<E: RawRepresentable> where E.RawValue == Int {
+    let key: String
+    @available(*, unavailable) var wrappedValue: E {
+        get { fatalError("This wrapper only works on instance properties of classes") }
+        set { fatalError("This wrapper only works on instance properties of classes") }
+    }
+    
+    static subscript(
+        _enclosingInstance instance: NSManagedObject,
+        wrapped wrappedKeyPath: ReferenceWritableKeyPath<NSManagedObject, E>,
+        storage storageKeyPath: ReferenceWritableKeyPath<NSManagedObject, Self>
+    ) -> E {
+        get {
+            let propertyWrapper = instance[keyPath: storageKeyPath]
+            let key = propertyWrapper.key
+            return E(rawValue: instance.value(forKey: key) as! Int)!
+        }
+        set {
+            let propertyWrapper = instance[keyPath: storageKeyPath]
+            let key = propertyWrapper.key
+            instance.setValue(Int16(newValue.rawValue), forKey: key)
+        }
+    }
+}

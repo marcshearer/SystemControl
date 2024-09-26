@@ -70,10 +70,6 @@ enum UserDefault: String, CaseIterable {
         return  UserDefault.uuid(forKey: self.name)
     }
     
-    public var type: Type? {
-        return UserDefault.type(forKey: self.name)
-    }
-    
     public static func set(_ value: Any?, forKey name: String) {
         if value == nil {
             MyApp.defaults.set(nil, forKey: name)
@@ -81,8 +77,6 @@ enum UserDefault: String, CaseIterable {
             MyApp.defaults.set(array, forKey: name)
         } else if let uuid = value as? UUID {
             MyApp.defaults.set(uuid.uuidString, forKey: name)
-        } else if let type = value as? Type {
-            MyApp.defaults.set("\(type.rawValue)", forKey: name)
         } else if let date = value as? Date {
             MyApp.defaults.set(date.toFullString(), forKey: name)
         } else {
@@ -130,11 +124,6 @@ enum UserDefault: String, CaseIterable {
         }
         return result
     }
-    
-    public static func type(forKey name: String) -> Type? {
-        return Type(rawValue: Int(MyApp.defaults.string(forKey: name) ?? "") ?? -1)
-    }
-    
 }
 
 enum FilterType: CaseIterable {

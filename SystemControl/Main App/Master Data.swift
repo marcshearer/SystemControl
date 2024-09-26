@@ -18,9 +18,7 @@ class MasterData: ObservableObject {
         
             /// **Builds in-memory mirror of layouts, scorecards, players and locations with pointers to managed objects**
             /// Note that this infers that there will only ever be 1 instance of the app accessing the database
-        
-        let createDefaultData = false
-        
+                
             // Read current data
         let fragmentMOs = CoreData.fetch(from: FragmentMO.entity.name, sort: (key: #keyPath(FragmentMO.sequence16), direction: .ascending)) as! [FragmentMO]
         

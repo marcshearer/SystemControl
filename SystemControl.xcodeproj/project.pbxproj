@@ -7,6 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B220AA712CA2AE5B00232D3C /* Message Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA702CA2AE5B00232D3C /* Message Box.swift */; };
+		B220AA852CA2CF5A00232D3C /* Input String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA742CA2CF5A00232D3C /* Input String.swift */; };
+		B220AA862CA2CF5A00232D3C /* Input Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA772CA2CF5A00232D3C /* Input Float.swift */; };
+		B220AA872CA2CF5A00232D3C /* input Number Mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA782CA2CF5A00232D3C /* input Number Mac.swift */; };
+		B220AA882CA2CF5A00232D3C /* Input Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA752CA2CF5A00232D3C /* Input Title.swift */; };
+		B220AA892CA2CF5A00232D3C /* Date Picker Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA7D2CA2CF5A00232D3C /* Date Picker Input.swift */; };
+		B220AA8A2CA2CF5A00232D3C /* Multi Select Picker Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA7C2CA2CF5A00232D3C /* Multi Select Picker Input.swift */; };
+		B220AA8B2CA2CF5A00232D3C /* Standard View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA802CA2CF5A00232D3C /* Standard View.swift */; };
+		B220AA8C2CA2CF5A00232D3C /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA722CA2CF5A00232D3C /* Banner.swift */; };
+		B220AA8D2CA2CF5A00232D3C /* Picker Input Simple.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA7A2CA2CF5A00232D3C /* Picker Input Simple.swift */; };
+		B220AA8E2CA2CF5A00232D3C /* Image Capture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA732CA2CF5A00232D3C /* Image Capture.swift */; };
+		B220AA8F2CA2CF5A00232D3C /* Picker Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA7B2CA2CF5A00232D3C /* Picker Input.swift */; };
+		B220AA902CA2CF5A00232D3C /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA7F2CA2CF5A00232D3C /* Separator.swift */; };
+		B220AA912CA2CF5A00232D3C /* Input Integer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA762CA2CF5A00232D3C /* Input Integer.swift */; };
+		B220AA922CA2CF5A00232D3C /* Double Column View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA812CA2CF5A00232D3C /* Double Column View.swift */; };
+		B220AA932CA2CF5A00232D3C /* Stepper Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA7E2CA2CF5A00232D3C /* Stepper Input.swift */; };
+		B220AA942CA2CF5A00232D3C /* Toolbar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA822CA2CF5A00232D3C /* Toolbar View.swift */; };
+		B220AA952CA2CF5A00232D3C /* Input Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA792CA2CF5A00232D3C /* Input Toggle.swift */; };
+		B220AA962CA2CF5A00232D3C /* List Tile View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA832CA2CF5A00232D3C /* List Tile View.swift */; };
+		B220AA972CA2CF5A00232D3C /* Inset View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA842CA2CF5A00232D3C /* Inset View.swift */; };
+		B220AA9E2CA2CF6B00232D3C /* Target View Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA9A2CA2CF6B00232D3C /* Target View Modifiers.swift */; };
+		B220AA9F2CA2CF6B00232D3C /* Slide In Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA982CA2CF6B00232D3C /* Slide In Menu.swift */; };
+		B220AAA02CA2CF6B00232D3C /* Swipe Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA992CA2CF6B00232D3C /* Swipe Gestures.swift */; };
+		B220AAA12CA2CF6B00232D3C /* Keyboard Adaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA9B2CA2CF6B00232D3C /* Keyboard Adaptive.swift */; };
+		B220AAA22CA2CF6B00232D3C /* Undo Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA9D2CA2CF6B00232D3C /* Undo Handler.swift */; };
+		B220AAA32CA2CF6B00232D3C /* Popup Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA9C2CA2CF6B00232D3C /* Popup Menu.swift */; };
+		B220AAA62CA2CFCC00232D3C /* Custom Collection View Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AAA42CA2CFCC00232D3C /* Custom Collection View Flow.swift */; };
+		B220AAA72CA2CFCC00232D3C /* Custom View Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AAA52CA2CFCC00232D3C /* Custom View Animations.swift */; };
+		B220AAA92CA2CFDF00232D3C /* Graph View Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AAA82CA2CFDF00232D3C /* Graph View Class.swift */; };
 		B27E2DB52C9B2B6B006AF358 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B27E2DAA2C9B2B6B006AF358 /* Preview Assets.xcassets */; };
 		B27E2DB62C9B2B6B006AF358 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B27E2DAD2C9B2B6B006AF358 /* Assets.xcassets */; };
 		B27E2DB72C9B2B6B006AF358 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DAE2C9B2B6B006AF358 /* ContentView.swift */; };
@@ -44,6 +73,35 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B220AA702CA2AE5B00232D3C /* Message Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message Box.swift"; sourceTree = "<group>"; };
+		B220AA722CA2CF5A00232D3C /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		B220AA732CA2CF5A00232D3C /* Image Capture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image Capture.swift"; sourceTree = "<group>"; };
+		B220AA742CA2CF5A00232D3C /* Input String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Input String.swift"; sourceTree = "<group>"; };
+		B220AA752CA2CF5A00232D3C /* Input Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Input Title.swift"; sourceTree = "<group>"; };
+		B220AA762CA2CF5A00232D3C /* Input Integer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Input Integer.swift"; sourceTree = "<group>"; };
+		B220AA772CA2CF5A00232D3C /* Input Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Input Float.swift"; sourceTree = "<group>"; };
+		B220AA782CA2CF5A00232D3C /* input Number Mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "input Number Mac.swift"; sourceTree = "<group>"; };
+		B220AA792CA2CF5A00232D3C /* Input Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Input Toggle.swift"; sourceTree = "<group>"; };
+		B220AA7A2CA2CF5A00232D3C /* Picker Input Simple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker Input Simple.swift"; sourceTree = "<group>"; };
+		B220AA7B2CA2CF5A00232D3C /* Picker Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker Input.swift"; sourceTree = "<group>"; };
+		B220AA7C2CA2CF5A00232D3C /* Multi Select Picker Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Multi Select Picker Input.swift"; sourceTree = "<group>"; };
+		B220AA7D2CA2CF5A00232D3C /* Date Picker Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Picker Input.swift"; sourceTree = "<group>"; };
+		B220AA7E2CA2CF5A00232D3C /* Stepper Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stepper Input.swift"; sourceTree = "<group>"; };
+		B220AA7F2CA2CF5A00232D3C /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
+		B220AA802CA2CF5A00232D3C /* Standard View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Standard View.swift"; sourceTree = "<group>"; };
+		B220AA812CA2CF5A00232D3C /* Double Column View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double Column View.swift"; sourceTree = "<group>"; };
+		B220AA822CA2CF5A00232D3C /* Toolbar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toolbar View.swift"; sourceTree = "<group>"; };
+		B220AA832CA2CF5A00232D3C /* List Tile View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List Tile View.swift"; sourceTree = "<group>"; };
+		B220AA842CA2CF5A00232D3C /* Inset View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inset View.swift"; sourceTree = "<group>"; };
+		B220AA982CA2CF6B00232D3C /* Slide In Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Slide In Menu.swift"; sourceTree = "<group>"; };
+		B220AA992CA2CF6B00232D3C /* Swipe Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swipe Gestures.swift"; sourceTree = "<group>"; };
+		B220AA9A2CA2CF6B00232D3C /* Target View Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Target View Modifiers.swift"; sourceTree = "<group>"; };
+		B220AA9B2CA2CF6B00232D3C /* Keyboard Adaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard Adaptive.swift"; sourceTree = "<group>"; };
+		B220AA9C2CA2CF6B00232D3C /* Popup Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Popup Menu.swift"; sourceTree = "<group>"; };
+		B220AA9D2CA2CF6B00232D3C /* Undo Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Undo Handler.swift"; sourceTree = "<group>"; };
+		B220AAA42CA2CFCC00232D3C /* Custom Collection View Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Collection View Flow.swift"; sourceTree = "<group>"; };
+		B220AAA52CA2CFCC00232D3C /* Custom View Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom View Animations.swift"; sourceTree = "<group>"; };
+		B220AAA82CA2CFDF00232D3C /* Graph View Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph View Class.swift"; sourceTree = "<group>"; };
 		B27E2D902C9B2A01006AF358 /* SystemControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SystemControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B27E2DAA2C9B2B6B006AF358 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B27E2DAD2C9B2B6B006AF358 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,8 +214,8 @@
 			children = (
 				B2801F7F2C9C018B00F4E1F1 /* Palette.swift */,
 				B2801F802C9C018B00F4E1F1 /* Themes.swift */,
-				B2801F7D2C9BF4D800F4E1F1 /* Object Model.swift */,
 				B27E2DD02C9B3680006AF358 /* Core Data.swift */,
+				B2801F7D2C9BF4D800F4E1F1 /* Object Model.swift */,
 				B2801F832C9C01AD00F4E1F1 /* Utility.swift */,
 				B2801F842C9C01AD00F4E1F1 /* Utility Extension.swift */,
 				B2801F852C9C01AD00F4E1F1 /* My Color.swift */,
@@ -170,6 +228,9 @@
 				B2801F8C2C9C01AD00F4E1F1 /* Link Presentation.swift */,
 				B2801F8D2C9C01AD00F4E1F1 /* Local Authentication.swift */,
 				B2801F8E2C9C01AD00F4E1F1 /* Backup.swift */,
+				B220AAA42CA2CFCC00232D3C /* Custom Collection View Flow.swift */,
+				B220AAA52CA2CFCC00232D3C /* Custom View Animations.swift */,
+				B220AAA82CA2CFDF00232D3C /* Graph View Class.swift */,
 				B2801F8F2C9C01AD00F4E1F1 /* Flags.swift */,
 				B2801F902C9C01AD00F4E1F1 /* iCloud.swift */,
 			);
@@ -179,7 +240,33 @@
 		B2801FCE2C9C060300F4E1F1 /* Reusable UIKit Components */ = {
 			isa = PBXGroup;
 			children = (
+				B220AA722CA2CF5A00232D3C /* Banner.swift */,
+				B220AA732CA2CF5A00232D3C /* Image Capture.swift */,
+				B220AA742CA2CF5A00232D3C /* Input String.swift */,
+				B220AA752CA2CF5A00232D3C /* Input Title.swift */,
+				B220AA762CA2CF5A00232D3C /* Input Integer.swift */,
+				B220AA772CA2CF5A00232D3C /* Input Float.swift */,
+				B220AA782CA2CF5A00232D3C /* input Number Mac.swift */,
+				B220AA792CA2CF5A00232D3C /* Input Toggle.swift */,
+				B220AA7A2CA2CF5A00232D3C /* Picker Input Simple.swift */,
+				B220AA7B2CA2CF5A00232D3C /* Picker Input.swift */,
+				B220AA7C2CA2CF5A00232D3C /* Multi Select Picker Input.swift */,
+				B220AA7D2CA2CF5A00232D3C /* Date Picker Input.swift */,
+				B220AA7E2CA2CF5A00232D3C /* Stepper Input.swift */,
+				B220AA7F2CA2CF5A00232D3C /* Separator.swift */,
+				B220AA802CA2CF5A00232D3C /* Standard View.swift */,
+				B220AA812CA2CF5A00232D3C /* Double Column View.swift */,
+				B220AA822CA2CF5A00232D3C /* Toolbar View.swift */,
+				B220AA832CA2CF5A00232D3C /* List Tile View.swift */,
+				B220AA842CA2CF5A00232D3C /* Inset View.swift */,
 				B2801FC22C9C030C00F4E1F1 /* Key Action Enumeration.swift */,
+				B220AA702CA2AE5B00232D3C /* Message Box.swift */,
+				B220AA982CA2CF6B00232D3C /* Slide In Menu.swift */,
+				B220AA992CA2CF6B00232D3C /* Swipe Gestures.swift */,
+				B220AA9A2CA2CF6B00232D3C /* Target View Modifiers.swift */,
+				B220AA9B2CA2CF6B00232D3C /* Keyboard Adaptive.swift */,
+				B220AA9C2CA2CF6B00232D3C /* Popup Menu.swift */,
+				B220AA9D2CA2CF6B00232D3C /* Undo Handler.swift */,
 			);
 			name = "Reusable UIKit Components";
 			sourceTree = "<group>";
@@ -188,11 +275,11 @@
 			isa = PBXGroup;
 			children = (
 				B2801FD32C9C0E9A00F4E1F1 /* MyApp.swift */,
+				B27E2DC42C9B3171006AF358 /* Entity List.swift */,
 				B27E2DC62C9B3470006AF358 /* Persistence.swift */,
 				B2801FD42C9C0E9A00F4E1F1 /* Declarations.swift */,
 				B2801FD52C9C0E9A00F4E1F1 /* Config.swift */,
 				B2801FD62C9C0E9A00F4E1F1 /* User Defaults.swift */,
-				B27E2DC42C9B3171006AF358 /* Entity List.swift */,
 			);
 			name = "Standard Components";
 			sourceTree = "<group>";
@@ -322,6 +409,34 @@
 				B2801FD72C9C0E9A00F4E1F1 /* Config.swift in Sources */,
 				B2801FD82C9C0E9A00F4E1F1 /* User Defaults.swift in Sources */,
 				B2801FD92C9C0E9A00F4E1F1 /* MyApp.swift in Sources */,
+				B220AA852CA2CF5A00232D3C /* Input String.swift in Sources */,
+				B220AA862CA2CF5A00232D3C /* Input Float.swift in Sources */,
+				B220AA872CA2CF5A00232D3C /* input Number Mac.swift in Sources */,
+				B220AAA92CA2CFDF00232D3C /* Graph View Class.swift in Sources */,
+				B220AA882CA2CF5A00232D3C /* Input Title.swift in Sources */,
+				B220AA892CA2CF5A00232D3C /* Date Picker Input.swift in Sources */,
+				B220AA8A2CA2CF5A00232D3C /* Multi Select Picker Input.swift in Sources */,
+				B220AA8B2CA2CF5A00232D3C /* Standard View.swift in Sources */,
+				B220AA9E2CA2CF6B00232D3C /* Target View Modifiers.swift in Sources */,
+				B220AA9F2CA2CF6B00232D3C /* Slide In Menu.swift in Sources */,
+				B220AAA02CA2CF6B00232D3C /* Swipe Gestures.swift in Sources */,
+				B220AAA12CA2CF6B00232D3C /* Keyboard Adaptive.swift in Sources */,
+				B220AAA22CA2CF6B00232D3C /* Undo Handler.swift in Sources */,
+				B220AAA32CA2CF6B00232D3C /* Popup Menu.swift in Sources */,
+				B220AA8C2CA2CF5A00232D3C /* Banner.swift in Sources */,
+				B220AA8D2CA2CF5A00232D3C /* Picker Input Simple.swift in Sources */,
+				B220AA8E2CA2CF5A00232D3C /* Image Capture.swift in Sources */,
+				B220AA8F2CA2CF5A00232D3C /* Picker Input.swift in Sources */,
+				B220AA902CA2CF5A00232D3C /* Separator.swift in Sources */,
+				B220AA912CA2CF5A00232D3C /* Input Integer.swift in Sources */,
+				B220AAA62CA2CFCC00232D3C /* Custom Collection View Flow.swift in Sources */,
+				B220AAA72CA2CFCC00232D3C /* Custom View Animations.swift in Sources */,
+				B220AA922CA2CF5A00232D3C /* Double Column View.swift in Sources */,
+				B220AA932CA2CF5A00232D3C /* Stepper Input.swift in Sources */,
+				B220AA942CA2CF5A00232D3C /* Toolbar View.swift in Sources */,
+				B220AA952CA2CF5A00232D3C /* Input Toggle.swift in Sources */,
+				B220AA962CA2CF5A00232D3C /* List Tile View.swift in Sources */,
+				B220AA972CA2CF5A00232D3C /* Inset View.swift in Sources */,
 				B2801FDD2C9C0EFA00F4E1F1 /* Version.swift in Sources */,
 				B2801FDA2C9C0E9A00F4E1F1 /* Declarations.swift in Sources */,
 				B2801F9D2C9C01AD00F4E1F1 /* Backup.swift in Sources */,
@@ -331,6 +446,7 @@
 				B2801FDF2C9C106E00F4E1F1 /* Master Data.swift in Sources */,
 				B27E2DB72C9B2B6B006AF358 /* ContentView.swift in Sources */,
 				B27E2DC52C9B3178006AF358 /* Entity List.swift in Sources */,
+				B220AA712CA2AE5B00232D3C /* Message Box.swift in Sources */,
 				B2801F812C9C018B00F4E1F1 /* Themes.swift in Sources */,
 				B2801F822C9C018B00F4E1F1 /* Palette.swift in Sources */,
 				B2801F7E2C9BF4DF00F4E1F1 /* Object Model.swift in Sources */,
@@ -479,6 +595,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MarcShearer.SystemControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -509,6 +626,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MarcShearer.SystemControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
