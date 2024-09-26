@@ -13,7 +13,10 @@ public class FragmentViewModel : ViewModel, ObservableObject, Identifiable {
     
     // Properties in core data model
     @Published private(set) var fragmentId: UUID
-    @Published public var sequence: Int
+    @Published public var nextFragmentId: UUID?
+    @Published public var firstChildFragmentId: UUID?
+    @Published public var document: String
+    @Published public var edition: String
     @Published public var name: String
     @Published public var content: String
        
@@ -26,9 +29,10 @@ public class FragmentViewModel : ViewModel, ObservableObject, Identifiable {
     // Auto-cleanup
     private var cancellableSet: Set<AnyCancellable> = []
     
-    override public init() {
+    public init(document: String, edition: String) {
         self.fragmentId = UUID()
-        self.sequence = Int.max
+        self.document = document
+        self.edition = edition
         self.name = ""
         self.content = ""
         super.init()
@@ -39,7 +43,7 @@ public class FragmentViewModel : ViewModel, ObservableObject, Identifiable {
     }
     
     public convenience init(fragmentMO: FragmentMO) {
-        self.init()
+        self.init(document: fragmentMO.document, edition: fragmentMO.edition)
         self.managedObject = fragmentMO
         self.revert()
     }
@@ -76,6 +80,8 @@ public class FragmentViewModel : ViewModel, ObservableObject, Identifiable {
     
     public override func beforeInsert() {
         assert(name == "", "Fragment must have a non-blank name")
+        assert(document == "", "Fragment must have a non-blank document")
+        assert(edition == "", "Fragment must have a non-blank edition")
     }
     
     public override var exists: Bool {

@@ -11,7 +11,7 @@ let fragmentEntity = Entity( "Fragment",
                              FragmentMO.self,
                              Attribute("fragmentId",            .UUIDAttributeType),
                              Attribute("nextFragmentId",        .UUIDAttributeType),
-                             Attribute("firstChildId",          .UUIDAttributeType),
+                             Attribute("firstChildFragmentId",  .UUIDAttributeType),
                              Attribute("document",              .stringAttributeType),
                              Attribute("edition",               .stringAttributeType),
                              Attribute("name",                  .stringAttributeType),
@@ -24,10 +24,9 @@ public class FragmentMO: NSManagedObject, ManagedObject, Identifiable {
     
     @NSManaged public var fragmentId: UUID
     @NSManaged public var nextFragmentId: UUID
-    @NSManaged public var firstChildId: UUID
+    @NSManaged public var firstChildFragmentId: UUID
     @NSManaged public var document: String
     @NSManaged public var edition: String
-    @NSManaged public var sequence16: Int16
     @NSManaged public var name: String
     @NSManaged public var content: String
     
@@ -35,6 +34,4 @@ public class FragmentMO: NSManagedObject, ManagedObject, Identifiable {
         self.init()
         self.fragmentId = UUID()
     }
-    
-    @IntProperty<Int16>(key: "sequence16") var sequence: Int
 }

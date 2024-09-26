@@ -20,7 +20,7 @@ class MasterData: ObservableObject {
             /// Note that this infers that there will only ever be 1 instance of the app accessing the database
                 
             // Read current data
-        let fragmentMOs = CoreData.fetch(from: FragmentMO.entity.name, sort: (key: #keyPath(FragmentMO.sequence16), direction: .ascending)) as! [FragmentMO]
+        let fragmentMOs = CoreData.fetch(from: FragmentMO.entity.name) as! [FragmentMO]
         
             // Setup fragments
         self.fragments = []
