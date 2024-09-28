@@ -277,47 +277,47 @@ public enum EntityAttributeType {
     }
 }
 
-@propertyWrapper struct IntProperty<IntType: BinaryInteger> {
-    let key: String
-    @available(*, unavailable) var wrappedValue: Int {
+@propertyWrapper public struct IntProperty<IntType: BinaryInteger, RowType: NSManagedObject> {
+    public let key: String
+    @available(*, unavailable) public var wrappedValue: Int {
         get { fatalError("This wrapper only works on instance properties of classes") }
         set { fatalError("This wrapper only works on instance properties of classes") }
     }
     
-    static subscript<InstanceType:NSManagedObject>(
-        _enclosingInstance instance: InstanceType,
-        wrapped wrappedKeyPath: KeyPath<InstanceType, Int>,
-        storage storageKeyPath: KeyPath<InstanceType, Self>
+    public static subscript(
+        _enclosingInstance instance: RowType,
+        wrapped wrappedKeyPath: ReferenceWritableKeyPath<RowType, Int>,
+        storage storageKeyPath: ReferenceWritableKeyPath<RowType, Self>
     ) -> Int {
         get {
-            let wrapper = instance[keyPath: storageKeyPath]
-            let key = wrapper.key
+            let propertyWrapper = instance[keyPath: storageKeyPath]
+            let key = propertyWrapper.key 
             return instance.value(forKey: key) as! Int
         }
         set {
-            let wrapper = instance[keyPath: storageKeyPath]
-            let key = wrapper.key
-            instance.setValue(IntType(newValue), forKey: key)
+            let propertyWrapper = instance[keyPath: storageKeyPath]
+            let key = propertyWrapper.key
+            instance.setValue(Int16(newValue), forKey: key)
         }
     }
 }
 
-@propertyWrapper struct EnumProperty<E: RawRepresentable> where E.RawValue == Int {
-    let key: String
-    @available(*, unavailable) var wrappedValue: E {
+@propertyWrapper public struct EnumProperty<EnumType: RawRepresentable, RowType: NSManagedObject> where EnumType.RawValue == Int {
+    public let key: String
+    @available(*, unavailable) public var wrappedValue: EnumType {
         get { fatalError("This wrapper only works on instance properties of classes") }
         set { fatalError("This wrapper only works on instance properties of classes") }
     }
     
-    static subscript(
-        _enclosingInstance instance: NSManagedObject,
-        wrapped wrappedKeyPath: ReferenceWritableKeyPath<NSManagedObject, E>,
-        storage storageKeyPath: ReferenceWritableKeyPath<NSManagedObject, Self>
-    ) -> E {
+    public static subscript(
+        _enclosingInstance instance: RowType,
+        wrapped wrappedKeyPath: ReferenceWritableKeyPath<RowType, EnumType>,
+        storage storageKeyPath: ReferenceWritableKeyPath<RowType, Self>
+    ) -> EnumType {
         get {
             let propertyWrapper = instance[keyPath: storageKeyPath]
             let key = propertyWrapper.key
-            return E(rawValue: instance.value(forKey: key) as! Int)!
+            return EnumType(rawValue: instance.value(forKey: key) as! Int)!
         }
         set {
             let propertyWrapper = instance[keyPath: storageKeyPath]

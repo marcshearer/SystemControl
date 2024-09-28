@@ -14,8 +14,13 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-        }.onAppear {
-            print("Hello")
+            Button("Test") {
+                let row = FragmentMO()
+                row.iteration = 2
+                print(row.iterationRaw, row.iteration)
+                row.test = .y
+                print(row.enumRaw, row.test)
+            }
         }
     }
 }
