@@ -33,8 +33,8 @@ public class FragmentMO: NSManagedObject, ManagedObject, Identifiable {
     @NSManaged public var name: String
     @NSManaged public var content: String
     @NSManaged public var enumRaw: Int16
-    @IntProperty<Int32, FragmentMO>(key: "iterationRaw") public var iteration: Int
-    @EnumProperty<Test, FragmentMO>(key: "enumRaw") public var test: Test
+    @IntProperty<FragmentMO, Int32>(key: "iterationRaw") public var iteration: Int
+    @EnumProperty<FragmentMO, Test>(key: "enumRaw") public var test: Test
     
     convenience init() {
         self.init(context: CoreData.context)

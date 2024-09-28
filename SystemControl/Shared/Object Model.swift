@@ -277,7 +277,7 @@ public enum EntityAttributeType {
     }
 }
 
-@propertyWrapper public struct IntProperty<IntType: BinaryInteger, RowType: NSManagedObject> {
+@propertyWrapper public struct IntProperty<RowType: NSManagedObject, IntType: BinaryInteger> {
     public let key: String
     @available(*, unavailable) public var wrappedValue: Int {
         get { fatalError("This wrapper only works on instance properties of classes") }
@@ -302,7 +302,7 @@ public enum EntityAttributeType {
     }
 }
 
-@propertyWrapper public struct EnumProperty<EnumType: RawRepresentable, RowType: NSManagedObject> where EnumType.RawValue == Int {
+@propertyWrapper public struct EnumProperty<RowType: NSManagedObject, EnumType: RawRepresentable> where EnumType.RawValue == Int {
     public let key: String
     @available(*, unavailable) public var wrappedValue: EnumType {
         get { fatalError("This wrapper only works on instance properties of classes") }
