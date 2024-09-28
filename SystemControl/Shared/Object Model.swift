@@ -278,10 +278,14 @@ public enum EntityAttributeType {
 }
 
 @propertyWrapper public struct IntProperty<RowType: NSManagedObject, IntType: BinaryInteger> {
-    public let key: String
+    public let key: ReferenceWritableKeyPath<RowType, IntType>
     @available(*, unavailable) public var wrappedValue: Int {
         get { fatalError("This wrapper only works on instance properties of classes") }
         set { fatalError("This wrapper only works on instance properties of classes") }
+    }
+    
+    init(_ key: ReferenceWritableKeyPath<RowType, IntType>) {
+        self.key = key
     }
     
     public static subscript(
@@ -291,22 +295,24 @@ public enum EntityAttributeType {
     ) -> Int {
         get {
             let propertyWrapper = instance[keyPath: storageKeyPath]
-            let key = propertyWrapper.key 
-            return instance.value(forKey: key) as! Int
+            return Int(instance[keyPath: propertyWrapper.key])
         }
         set {
             let propertyWrapper = instance[keyPath: storageKeyPath]
-            let key = propertyWrapper.key
-            instance.setValue(Int16(newValue), forKey: key)
+            instance[keyPath: propertyWrapper.key] = IntType(newValue)
         }
     }
 }
 
-@propertyWrapper public struct EnumProperty<RowType: NSManagedObject, EnumType: RawRepresentable> where EnumType.RawValue == Int {
-    public let key: String
+@propertyWrapper public struct EnumProperty<RowType: NSManagedObject, IntType: BinaryInteger, EnumType: RawRepresentable> where EnumType.RawValue == IntType {
+    public let key: ReferenceWritableKeyPath<RowType, IntType>
     @available(*, unavailable) public var wrappedValue: EnumType {
         get { fatalError("This wrapper only works on instance properties of classes") }
         set { fatalError("This wrapper only works on instance properties of classes") }
+    }
+    
+    init(_ key: ReferenceWritableKeyPath<RowType, IntType>) {
+        self.key = key
     }
     
     public static subscript(
@@ -316,13 +322,12 @@ public enum EntityAttributeType {
     ) -> EnumType {
         get {
             let propertyWrapper = instance[keyPath: storageKeyPath]
-            let key = propertyWrapper.key
-            return EnumType(rawValue: instance.value(forKey: key) as! Int)!
+            return EnumType(rawValue: instance[keyPath: propertyWrapper.key])!
         }
         set {
             let propertyWrapper = instance[keyPath: storageKeyPath]
             let key = propertyWrapper.key
-            instance.setValue(Int16(newValue.rawValue), forKey: key)
+            instance[keyPath: propertyWrapper.key] = newValue.rawValue
         }
     }
 }

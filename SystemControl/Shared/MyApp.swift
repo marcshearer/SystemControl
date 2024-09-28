@@ -37,7 +37,7 @@ class MyApp {
     public static let publicDatabase = cloudContainer.publicCloudDatabase
     public static let privateDatabase = cloudContainer.privateCloudDatabase
     
-    static let objectModel = Model(fragmentEntity)
+    static let objectModel = Model(paragraphEntity)
     
     static let shared = MyApp()
     

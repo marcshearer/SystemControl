@@ -12,7 +12,7 @@ class MasterData: ObservableObject {
     
     public static let shared = MasterData()
     
-    @Published private(set) var fragments: [FragmentViewModel] = []
+    @Published private(set) var paragraphs: [ParagraphViewModel] = []
     
     public func load() {
         
@@ -20,12 +20,12 @@ class MasterData: ObservableObject {
             /// Note that this infers that there will only ever be 1 instance of the app accessing the database
                 
             // Read current data
-        let fragmentMOs = CoreData.fetch(from: FragmentMO.entity.name) as! [FragmentMO]
+        let paragraphMOs = CoreData.fetch(from: ParagraphMO.entity.name) as! [ParagraphMO]
         
-            // Setup fragments
-        self.fragments = []
-        for fragmentMO in fragmentMOs {
-            fragments.append(FragmentViewModel(fragmentMO: fragmentMO))
+            // Setup paragraphs
+        self.paragraphs = []
+        for paragraphMO in paragraphMOs {
+            paragraphs.append(ParagraphViewModel(paragraphMO: paragraphMO))
         }
     }
 }

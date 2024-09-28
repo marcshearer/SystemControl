@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             Button("Test") {
-                let row = FragmentMO()
+                let row = ParagraphMO()
                 row.iteration = 2
                 print(row.iterationRaw, row.iteration)
                 row.test = .y

@@ -43,7 +43,7 @@
 		B27E2DC02C9B2BF7006AF358 /* Notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = B27E2DBF2C9B2BF7006AF358 /* Notes.txt */; };
 		B27E2DC52C9B3178006AF358 /* Entity List.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DC42C9B3171006AF358 /* Entity List.swift */; };
 		B27E2DC72C9B3470006AF358 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DC62C9B3470006AF358 /* Persistence.swift */; };
-		B27E2DCA2C9B35B0006AF358 /* Fragment Managed Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DC92C9B35A5006AF358 /* Fragment Managed Object.swift */; };
+		B27E2DCA2C9B35B0006AF358 /* Paragraph Managed Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DC92C9B35A5006AF358 /* Paragraph Managed Object.swift */; };
 		B27E2DD12C9B3680006AF358 /* Core Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DD02C9B3680006AF358 /* Core Data.swift */; };
 		B2801F7E2C9BF4DF00F4E1F1 /* Object Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2801F7D2C9BF4D800F4E1F1 /* Object Model.swift */; };
 		B2801F812C9C018B00F4E1F1 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2801F802C9C018B00F4E1F1 /* Themes.swift */; };
@@ -69,7 +69,7 @@
 		B2801FDA2C9C0E9A00F4E1F1 /* Declarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2801FD42C9C0E9A00F4E1F1 /* Declarations.swift */; };
 		B2801FDD2C9C0EFA00F4E1F1 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2801FDC2C9C0EFA00F4E1F1 /* Version.swift */; };
 		B2801FDF2C9C106E00F4E1F1 /* Master Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2801FDE2C9C106E00F4E1F1 /* Master Data.swift */; };
-		B2801FE22C9C11BE00F4E1F1 /* Fragment View Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2801FE12C9C11B700F4E1F1 /* Fragment View Model.swift */; };
+		B2801FE22C9C11BE00F4E1F1 /* Paragraph View Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2801FE12C9C11B700F4E1F1 /* Paragraph View Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,7 +111,7 @@
 		B27E2DBF2C9B2BF7006AF358 /* Notes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notes.txt; sourceTree = "<group>"; };
 		B27E2DC42C9B3171006AF358 /* Entity List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity List.swift"; sourceTree = "<group>"; };
 		B27E2DC62C9B3470006AF358 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		B27E2DC92C9B35A5006AF358 /* Fragment Managed Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fragment Managed Object.swift"; sourceTree = "<group>"; };
+		B27E2DC92C9B35A5006AF358 /* Paragraph Managed Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Paragraph Managed Object.swift"; sourceTree = "<group>"; };
 		B27E2DD02C9B3680006AF358 /* Core Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core Data.swift"; sourceTree = "<group>"; };
 		B2801F7D2C9BF4D800F4E1F1 /* Object Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object Model.swift"; sourceTree = "<group>"; };
 		B2801F7F2C9C018B00F4E1F1 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 		B2801FD62C9C0E9A00F4E1F1 /* User Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User Defaults.swift"; sourceTree = "<group>"; };
 		B2801FDC2C9C0EFA00F4E1F1 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		B2801FDE2C9C106E00F4E1F1 /* Master Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Master Data.swift"; sourceTree = "<group>"; };
-		B2801FE12C9C11B700F4E1F1 /* Fragment View Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fragment View Model.swift"; sourceTree = "<group>"; };
+		B2801FE12C9C11B700F4E1F1 /* Paragraph View Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Paragraph View Model.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,7 +287,7 @@
 		B2801FD12C9C069300F4E1F1 /* Managed Objects */ = {
 			isa = PBXGroup;
 			children = (
-				B27E2DC92C9B35A5006AF358 /* Fragment Managed Object.swift */,
+				B27E2DC92C9B35A5006AF358 /* Paragraph Managed Object.swift */,
 			);
 			name = "Managed Objects";
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 		B2801FE02C9C11A000F4E1F1 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				B2801FE12C9C11B700F4E1F1 /* Fragment View Model.swift */,
+				B2801FE12C9C11B700F4E1F1 /* Paragraph View Model.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -405,7 +405,7 @@
 				B2801F9A2C9C01AD00F4E1F1 /* Constraint.swift in Sources */,
 				B2801F9B2C9C01AD00F4E1F1 /* String Extensions.swift in Sources */,
 				B2801F9C2C9C01AD00F4E1F1 /* Flags.swift in Sources */,
-				B2801FE22C9C11BE00F4E1F1 /* Fragment View Model.swift in Sources */,
+				B2801FE22C9C11BE00F4E1F1 /* Paragraph View Model.swift in Sources */,
 				B2801FD72C9C0E9A00F4E1F1 /* Config.swift in Sources */,
 				B2801FD82C9C0E9A00F4E1F1 /* User Defaults.swift in Sources */,
 				B2801FD92C9C0E9A00F4E1F1 /* MyApp.swift in Sources */,
@@ -442,7 +442,7 @@
 				B2801F9D2C9C01AD00F4E1F1 /* Backup.swift in Sources */,
 				B2801F9E2C9C01AD00F4E1F1 /* Date Extensions.swift in Sources */,
 				B27E2DD12C9B3680006AF358 /* Core Data.swift in Sources */,
-				B27E2DCA2C9B35B0006AF358 /* Fragment Managed Object.swift in Sources */,
+				B27E2DCA2C9B35B0006AF358 /* Paragraph Managed Object.swift in Sources */,
 				B2801FDF2C9C106E00F4E1F1 /* Master Data.swift in Sources */,
 				B27E2DB72C9B2B6B006AF358 /* ContentView.swift in Sources */,
 				B27E2DC52C9B3178006AF358 /* Entity List.swift in Sources */,

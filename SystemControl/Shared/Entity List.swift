@@ -7,4 +7,4 @@
 
 import CoreData
 
-let objectModel = Model(fragmentEntity)
+let objectModel = Model(paragraphEntity)
