@@ -150,7 +150,7 @@ public class Model {
                                 }
                             }
                         case .attributedString:
-                            if let vmValue = vmValue as? AttributedString, let moValue = moValue as? AttributedString {
+                            if let vmValue = vmValue as? NSAttributedString, let moValue = moValue as? NSAttributedString {
                                 if vmValue != moValue {
                                     result = true
                                 }
@@ -315,13 +315,14 @@ public class WrappedArray {
 class AttributedStringToData: ValueTransformer {
     
     override func transformedValue(_ value: Any?) -> Any? {
-        let data = try! NSKeyedArchiver.archivedData(withRootObject: value as! NSAttributedString, requiringSecureCoding: false)
+        let value = value as! NSAttributedString
+        let data = try! NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false)
         return data
     }
     
     override func reverseTransformedValue(_ value: Any?) -> Any? {
         let dataValue = value as! Data
-        let data = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSAttributedString.self], from: dataValue)
-        return data as! NSAttributedString
+        let string = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSAttributedString.self], from: dataValue)
+        return string as! NSAttributedString
     }
 }

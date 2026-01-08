@@ -93,5 +93,10 @@ public class ParagraphViewModel : ViewModel, ObservableObject, RowViewModel {
         "Paragraph: \(self.name)"
     }
     
+    public var contentString: AttributedString {
+        get { content == nil ? AttributedString("") : AttributedString(content!) }
+        set { self.content = NSAttributedString(newValue) }
+    }
+    
     override public var debugDescription: String { self.description }
 }

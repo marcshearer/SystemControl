@@ -65,6 +65,7 @@ struct DocumentListView: View {
                                     .onTapGesture {
                                         // Copy this entry to current document
                                         self.selected.copy(from: document)
+                                        linkToEdit = true
                                     }
                             }
                         }
@@ -96,10 +97,8 @@ struct DocumentListView: View {
             }
             .navigationDestination(isPresented: $linkToEdit) {  }
         }
-        .sheet(isPresented: $linkToNew, onDismiss: {
+        .sheet(isPresented: $linkToEdit) {
             DocumentInputView(document: selected)
-        }) {
-            
         }
     }
 }
@@ -201,3 +200,4 @@ struct DocumentSummaryView: View {
         }
     }
 }
+
