@@ -1,6 +1,6 @@
 //
 //  MyApp.swift
-//  BridgeScore
+//  SystemControl
 //
 //  Created by Marc Shearer on 25/02/2021.
 //
@@ -37,7 +37,7 @@ class MyApp {
     public static let publicDatabase = cloudContainer.publicCloudDatabase
     public static let privateDatabase = cloudContainer.privateCloudDatabase
     
-    static let objectModel = Model(paragraphEntity)
+    static let objectModel = Model(documentEntity, editionEntity, paragraphEntity)
     
     static let shared = MyApp()
     
@@ -114,6 +114,6 @@ class MyApp {
     }
 }
 
-enum BridgeScoreError: Error {
+enum SystemControlError: Error {
     case invalidData
 }

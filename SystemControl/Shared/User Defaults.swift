@@ -1,6 +1,6 @@
 //
 //  User Defaults.swift
-//  BridgeScore
+//  SystemControl
 //
 //  Created by Marc Shearer on 12/03/2022.
 //
@@ -14,6 +14,8 @@ enum UserDefault: String, CaseIterable {
     case minVersion
     case minMessage
     case infoMessage
+    case currentUnsaved
+    case currentId
     
     public var defaultValue: Any? {
         switch self {
@@ -29,6 +31,10 @@ enum UserDefault: String, CaseIterable {
             return ""
         case .infoMessage:
             return ""
+        case .currentUnsaved:
+            return false
+        case .currentId:
+            return nil
         }
     }
     

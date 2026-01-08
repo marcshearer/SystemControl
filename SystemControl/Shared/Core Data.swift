@@ -145,6 +145,6 @@ class CoreData {
     }
 }
 
-protocol ManagedObject : NSManagedObject {
+public protocol ManagedObject : NSManagedObject, Identifiable {
     static var entity: Entity {get}
 }

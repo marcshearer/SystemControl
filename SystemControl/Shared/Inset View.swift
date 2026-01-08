@@ -1,6 +1,6 @@
 //
 //  Inset View.swift
-//  BridgeScore
+//  SystemControl
 //
 //  Created by Marc Shearer on 26/01/2022.
 //

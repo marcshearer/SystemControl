@@ -17,9 +17,7 @@ struct ContentView: View {
             Button("Test") {
                 let row = ParagraphMO()
                 row.iteration = 2
-                print(row.iterationRaw, row.iteration)
-                row.test = .y
-                print(row.enumRaw, row.test)
+                print(row.iteration16, row.iteration)
             }
         }
     }

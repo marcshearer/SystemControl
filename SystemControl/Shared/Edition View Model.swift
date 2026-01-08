@@ -1,5 +1,5 @@
 //
-//  Edition.swift
+//  Edition View Model.swift
 //  SystemControl
 //
 //  Created by Marc Shearer on 29/09/2024.
@@ -12,9 +12,11 @@ import CoreData
 public class EditionViewModel : ViewModel, ObservableObject {
     
     // Properties in core data model
-    @Published private(set) var editionId: UUID = UUID() ; public var id: UUID { get { editionId }}
+    @Published private(set) var editionId: UUID = UUID() ; public override var id: UUID { editionId }
     @Published public var name: String = ""
-       
+    @Published public var document: DocumentViewModel!
+    @Published public var sequence: Int = Int(Int32.max)
+
     @Published public var nameMessage: String = ""
     @Published private(set) var saveMessage: String = ""
     @Published private(set) var canSave: Bool = false
@@ -28,7 +30,6 @@ public class EditionViewModel : ViewModel, ObservableObject {
         super.init()
         self.entity = editionEntity
         self.masterData = MasterData.shared.editions
-        self.newManagedObject = EditionMO()
         self.setupMappings()
     }
     
@@ -37,6 +38,8 @@ public class EditionViewModel : ViewModel, ObservableObject {
         self.managedObject = editionMO
         self.revert()
     }
+    
+    public override var newManagedObject: NSManagedObject { EditionMO() }
     
     public static func == (lhs: EditionViewModel, rhs: EditionViewModel) -> Bool {
         return lhs.editionId == rhs.editionId
@@ -69,27 +72,27 @@ public class EditionViewModel : ViewModel, ObservableObject {
     }
     
     public override func beforeInsert() {
-        assert(name == "", "Edition must have a non-blank name")
+        assert(name != "", "Edition must have a non-blank name")
     }
     
     public override var exists: Bool {
-        return edition(id: editionId) != nil
+        return EditionViewModel.edition(id: editionId) != nil
     }
     
-    public func edition(id editionId: UUID?) -> EditionViewModel? {
+    public static func edition(id editionId: UUID?) -> EditionViewModel? {
         return EditionViewModel.getLookup(id: editionId)
     }
     
-    static public func getLookup(id editionId: UUID?) -> EditionViewModel? {
-        return (editionId == nil ? nil : MasterData.shared.editions.first(where: {$0.editionId == editionId})) as? Self
+    public static func getLookup(id: UUID?) -> Self? {
+        return (id == nil ? nil : (MasterData.shared.editions.array as! [EditionViewModel]).first(where: {$0.editionId == id})) as? Self
     }
     
     private func nameExists(_ name: String) -> Bool {
-        return !MasterData.shared.editions.filter({$0.name == name && $0.editionId != self.editionId}).isEmpty
+        return !(MasterData.shared.editions.array as! [EditionViewModel]).filter({$0.name == name && $0.editionId != self.editionId}).isEmpty
     }
     
     override public var description: String {
-        "Edition: \(self.name)"
+        "Edition: \(self.name) \(self.document!.name) \(self.sequence)"
     }
     
     override public var debugDescription: String { self.description }

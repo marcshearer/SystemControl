@@ -14,3 +14,9 @@ To Do
 
 Enhancements
 ============
+
+Design
+======
+
+The basic entity is a document. The application will contain several documents which are all independent
+Each document can have multiple editions.

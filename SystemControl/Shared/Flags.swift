@@ -1,6 +1,6 @@
 //
 //  Flags.swift
-//  BridgeScore
+//  SystemControl
 //
 //  Created by Marc Shearer on 30/03/2022.
 //

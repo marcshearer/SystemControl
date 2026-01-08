@@ -7,23 +7,23 @@
 
 import UIKit
 
-protocol ScorecardInputResponder {
+protocol DocumentInputResponder {
     var isFirstResponder: Bool {get}
     var canBecomeFirstResponder: Bool {get}
     func becomeFirstResponder() -> Bool
     func resignFirstResponder() -> Bool
 }
 
-protocol ScorecardResponderDelegate {
+protocol DocumentResponderDelegate {
     @discardableResult func getFocus(becomeFirstResponder: Bool) -> Bool
-    func resignedFirstResponder(from: ScorecardResponder)
+    func resignedFirstResponder(from: DocumentResponder)
     @discardableResult func keyPressed(keyAction: KeyAction?, characters: String) -> Bool
     func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?)
     func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?)
     var description: String {get}
 }
  
-extension ScorecardResponderDelegate {
+extension DocumentResponderDelegate {
     @discardableResult func keyPressed(keyAction: KeyAction?) -> Bool {
         keyPressed(keyAction: keyAction, characters: "")
     }
@@ -32,16 +32,16 @@ extension ScorecardResponderDelegate {
     }
 }
 
-protocol ScorecardInputDelegate: ScorecardResponderDelegate {
-    func inputTextChanged(_ textInput: ScorecardInputTextInput)
-    func inputTextShouldChangeCharacters(_ textInput: ScorecardInputTextInput, in range: NSRange, replacementString string: String) -> Bool
-    func inputTextDidBeginEditing(_ textInput: ScorecardInputTextInput)
-    func inputTextDidEndEditing(_ textInput: ScorecardInputTextInput)
-    func inputTextShouldReturn(_ textInput: ScorecardInputTextInput) -> Bool
-    func inputTextSpecialCharacters(_ inputText: ScorecardInputTextView, text: String) -> Bool
+protocol DocumentInputDelegate: DocumentResponderDelegate {
+    func inputTextChanged(_ textInput: DocumentInputTextInput)
+    func inputTextShouldChangeCharacters(_ textInput: DocumentInputTextInput, in range: NSRange, replacementString string: String) -> Bool
+    func inputTextDidBeginEditing(_ textInput: DocumentInputTextInput)
+    func inputTextDidEndEditing(_ textInput: DocumentInputTextInput)
+    func inputTextShouldReturn(_ textInput: DocumentInputTextInput) -> Bool
+    func inputTextSpecialCharacters(_ inputText: DocumentInputTextView, text: String) -> Bool
 }
 
-protocol ScorecardInputTextInput : ScorecardResponder, UITextInput, ScorecardInputResponder {
+protocol DocumentInputTextInput : DocumentResponder, UITextInput, DocumentInputResponder {
     var textValue: String! {get set}
     var textAlignment: NSTextAlignment {get set}
     var autocapitalizationType: UITextAutocapitalizationType {get set}
@@ -66,7 +66,7 @@ protocol ScorecardInputTextInput : ScorecardResponder, UITextInput, ScorecardInp
     func set(text: String?, numeric: Bool?, unsigned: Bool?, decimalPlaces: Int?, useLabel: Bool?, formattedText: (()->String)?)
 }
 
-extension ScorecardInputTextInput {
+extension DocumentInputTextInput {
     func set(text: String?) {
         set(text: text, numeric: nil, unsigned: nil, decimalPlaces: nil, useLabel: nil, formattedText: nil)
     }
@@ -78,7 +78,7 @@ extension ScorecardInputTextInput {
     }
 }
 
-class ScorecardInputTextView : UITextView, ScorecardInputTextInput, ScorecardInputResponder, UITextViewDelegate {
+class DocumentInputTextView : UITextView, DocumentInputTextInput, DocumentInputResponder, UITextViewDelegate {
     public var textOnEntry: String?
     private var numeric: Bool = false
     private var unsigned: Bool = false
@@ -97,14 +97,14 @@ class ScorecardInputTextView : UITextView, ScorecardInputTextInput, ScorecardInp
     public var showLabel: Bool { (label != nil) && useLabel && (!isUserInteractionEnabled || (!firstResponder && !forceFirstResponder)) }
     public var isNumeric: Bool { numeric }
 
-    let textInputDelegate: ScorecardInputDelegate?
+    let textInputDelegate: DocumentInputDelegate?
     
     public var adjustsFontSizeToFitWidth: Bool {
         get { adjustsFontForContentSizeCategory }
         set { adjustsFontForContentSizeCategory = newValue}
     }
 
-    init(delegate: ScorecardInputDelegate? = nil, label: FirstResponderLabel? = nil) {
+    init(delegate: DocumentInputDelegate? = nil, label: FirstResponderLabel? = nil) {
         self.textInputDelegate = delegate
         super.init(frame: CGRect(), textContainer: nil)
         label?.backgroundColor = .lightGray
@@ -250,7 +250,7 @@ class ScorecardInputTextView : UITextView, ScorecardInputTextInput, ScorecardInp
     }
 }
 
-class ScorecardInputTextField : UITextField, ScorecardInputTextInput, UITextFieldDelegate {
+class DocumentInputTextField : UITextField, DocumentInputTextInput, UITextFieldDelegate {
     public var textOnEntry: String?
     private var numeric: Bool = false
     private var unsigned: Bool = false
@@ -270,14 +270,14 @@ class ScorecardInputTextField : UITextField, ScorecardInputTextInput, UITextFiel
     public var showLabel: Bool { (label != nil) && useLabel && (!isUserInteractionEnabled || (!firstResponder && !forceFirstResponder)) }
     public var isNumeric: Bool { numeric }
 
-    let textInputDelegate: ScorecardInputDelegate?
+    let textInputDelegate: DocumentInputDelegate?
     
-    init(delegate: ScorecardInputDelegate? = nil, label: FirstResponderLabel? = nil) {
+    init(delegate: DocumentInputDelegate? = nil, label: FirstResponderLabel? = nil) {
         self.textInputDelegate = delegate
         self.label = label
         super.init(frame: CGRect())
         self.delegate = self
-        addTarget(self, action: #selector(ScorecardInputTextField.textFieldChanged), for: .editingChanged)
+        addTarget(self, action: #selector(DocumentInputTextField.textFieldChanged), for: .editingChanged)
     }
     
     func set(text: String? = nil, numeric: Bool? = nil, unsigned: Bool? = nil, decimalPlaces: Int? = nil, useLabel: Bool? = nil, formattedText: (()->String)? = nil) {

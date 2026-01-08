@@ -30,7 +30,7 @@ struct MyScene: Scene {
     var body: some Scene {
         WindowGroup {GeometryReader
             { (geometry) in
-                ContentView()
+                DocumentListView()
                 .onAppear() {
                     MyApp.format = (min(geometry.size.width, geometry.size.height) < 600 ? .phone : .tablet)
                 }

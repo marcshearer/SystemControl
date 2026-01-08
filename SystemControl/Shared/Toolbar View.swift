@@ -1,6 +1,6 @@
 //
 //  Toolbar View.swift
-//  BridgeScore
+//  SystemControl
 //
 //  Created by Marc Shearer on 06/02/2022.
 //

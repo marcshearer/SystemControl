@@ -9,91 +9,84 @@ import Combine
 import SwiftUI
 import CoreData
 
-public class ParagraphViewModel : ViewModel, ObservableObject, Identifiable {
+public class ParagraphViewModel : ViewModel, ObservableObject, RowViewModel {
     
     // Properties in core data model
-    @Published private(set) var paragraphId: UUID
-    @Published public var nextParagraphId: UUID?
-    @Published public var firstChildParagraphId: UUID?
-    @Published public var document: String
-    @Published public var edition: String
-    @Published public var name: String
-    @Published public var content: String
+    @Published private(set) var paragraphId: UUID = UUID()   ; public override var id: UUID { paragraphId }
+    @Published public var nextParagraph: ParagraphViewModel?
+    @Published public var childParagraph: ParagraphViewModel?
+    @Published public var document: DocumentViewModel?
+    @Published public var edition: EditionViewModel?
+    @Published public var iteration: Int = 0
+    @Published public var name: String = ""
+    @Published public var content: NSAttributedString? = NSAttributedString(string:"Test")
        
     @Published public var nameMessage: String = ""
     @Published private(set) var saveMessage: String = ""
     @Published private(set) var canSave: Bool = false
+    
+    @Published public var row: Int?
     
     public let itemProvider = NSItemProvider(contentsOf: URL(string: "com.sheareronline.systemcontrol.paragraph")!)!
     
     // Auto-cleanup
     private var cancellableSet: Set<AnyCancellable> = []
     
-    public init(document: String, edition: String) {
-        self.paragraphId = UUID()
-        self.document = document
-        self.edition = edition
-        self.name = ""
-        self.content = ""
+    override public init() {
         super.init()
         self.entity = paragraphEntity
         self.masterData = MasterData.shared.paragraphs
-        self.newManagedObject = ParagraphMO()
         self.setupMappings()
     }
     
     public convenience init(paragraphMO: ParagraphMO) {
-        self.init(document: paragraphMO.document, edition: paragraphMO.edition)
+        self.init()
         self.managedObject = paragraphMO
         self.revert()
     }
     
+    public convenience init(document: DocumentViewModel, paragraphMO: ParagraphMO) {
+        self.init(paragraphMO: paragraphMO)
+        self.document = document
+    }
+    
+    public override var newManagedObject: NSManagedObject { ParagraphMO() }
+    
+    public var paragraphMO: ParagraphMO? {
+        get {
+            managedObject as? ParagraphMO
+        }
+        set {
+            managedObject = newValue
+        }
+    }
+
     public static func == (lhs: ParagraphViewModel, rhs: ParagraphViewModel) -> Bool {
         return lhs.paragraphId == rhs.paragraphId
     }
     
     private func setupMappings() {
-        $name
-            .receive(on: RunLoop.main)
-            .map { (name) in
-                return (name == "" ? "Paragraph name must not be left blank. Either enter a valid name or delete this paragraph" : (self.nameExists(name) ? "This name already exists on another paragraph. The name must be unique" : ""))
-            }
-        .assign(to: \.saveMessage, on: self)
-        .store(in: &cancellableSet)
-        
-        $name
-            .receive(on: RunLoop.main)
-            .map { (name) in
-                return (name == "" ? "Must be non-blank" : (self.nameExists(name) ? "Must be unique" : ""))
-            }
-        .assign(to: \.nameMessage, on: self)
-        .store(in: &cancellableSet)
-              
-        $saveMessage
-            .receive(on: RunLoop.main)
-            .map { (saveMessage) in
-                return (saveMessage == "")
-            }
-        .assign(to: \.canSave, on: self)
-        .store(in: &cancellableSet)
+    }
+    
+    public static func paragraph(id paragraphId: UUID?) -> ParagraphViewModel? {
+        return ParagraphViewModel.getLookup(id: paragraphId)
+    }
+    
+    static public func getLookup(id: UUID?) -> ParagraphViewModel? {
+        return (id == nil ? nil : (MasterData.shared.paragraphs.array as! [ParagraphViewModel]).first(where: {$0.paragraphId == id}))
     }
     
     public override func beforeInsert() {
-        assert(name == "", "Paragraph must have a non-blank name")
-        assert(document == "", "Paragraph must have a non-blank document")
-        assert(edition == "", "Paragraph must have a non-blank edition")
+        assert(name != "", "Paragraph must have a non-blank name")
+        assert(document != nil, "Paragraph must have a non-blank document")
     }
     
     public override var exists: Bool {
-        return paragraph(id: paragraphId) != nil
+        return ParagraphViewModel.paragraph(id: id) != nil
     }
     
-    public func paragraph(id paragraphId: UUID?) -> ParagraphViewModel? {
-        return (paragraphId == nil ? nil : MasterData.shared.paragraphs.first(where: {$0.paragraphId == paragraphId}))
-    }
-    
-    private func nameExists(_ name: String) -> Bool {
-        return !MasterData.shared.paragraphs.filter({$0.name == name && $0.paragraphId != self.paragraphId}).isEmpty
+    public var hasData: Bool {
+        !(content?.string.isEmpty ?? true)
     }
     
     override public var description: String {

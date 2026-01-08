@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AutoCompleteDelegate {
-    func replace(with: String, textInput: ScorecardInputTextInput, positionAt: NSRange)
+    func replace(with: String, textInput: DocumentInputTextInput, positionAt: NSRange)
 }
 
 enum AutoCompleteConsider {
@@ -43,7 +43,7 @@ class AutoComplete: UIView, UITableViewDataSource, UITableViewDelegate {
     var text: String = ""
     var list: [AutoCompleteElement] = []
     var filteredList: [AutoCompleteElement] = []
-    var textInput: ScorecardInputTextInput?
+    var textInput: DocumentInputTextInput?
     var consider: AutoCompleteConsider!
     var mustStart: Bool = false
     var searchDescription: Bool = true
@@ -80,7 +80,7 @@ class AutoComplete: UIView, UITableViewDataSource, UITableViewDelegate {
         self.searchDescription = searchDescription
     }
     
-    public func set(text: String, textInput: ScorecardInputTextInput?, at range: NSRange) -> Int {
+    public func set(text: String, textInput: DocumentInputTextInput?, at range: NSRange) -> Int {
         self.textInput = textInput
         self.text = text
         self.range = range

@@ -11,8 +11,8 @@ import SwiftUI
 // Parameters
 
 public let maxRetention = 366
-public let appGroup = "group.com.sheareronline.bridgescore" // Has to match entitlements
-public let widgetKind = "com.sheareronline.bridgescore"
+public let appGroup = "group.com.sheareronline.systemcontrol" // Has to match entitlements
+public let widgetKind = "com.sheareronline.systemcontrol"
 
 // Sizes
 
@@ -58,14 +58,14 @@ var replaceTitleFont: UIFont {  UIFont.systemFont(ofSize: (MyApp.format != .phon
 var analysisFont: UIFont { UIFont.systemFont(ofSize: (MyApp.format != .phone ? 16.0 : 12.0)) }
 
 // Slide in IDs - Need to be declared here as there seem to be multiple instances of views
-let scorecardListViewId = UUID()
-let scorecardInputViewId = UUID()
-let scorecardDetailViewId = UUID()
-let layoutSetupViewId = UUID()
-let statsViewId = UUID()
+let documentListViewId = UUID()
+let documentInputViewId = UUID()
+let documentDetailViewId = UUID()
+let documentSetupViewId = UUID()
+let editionSetupViewId = UUID()
 
 // iCloud database identifier
-let iCloudIdentifier = "iCloud.MarcShearer.BridgeScore"
+let iCloudIdentifier = "iCloud.MarcShearer.SystemControl"
 
 // Columns for record IDs
 let recordIdKeys: [String:[String]] = [:]
@@ -82,8 +82,8 @@ let useBboHandViewer = false
 
 // Localisable names
 
-public let appName = "Bridge Scorecard"
-public let appImage = "bridge score"
+public let appName = "System Control"
+public let appImage = "system control"
 
 public let dateFormat = "EEEE d MMMM yyyy"
 

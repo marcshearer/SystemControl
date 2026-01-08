@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2059AE82CA866B100DFCB24 /* Document Managed Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2059AE72CA866A500DFCB24 /* Document Managed Object.swift */; };
+		B2059AEA2CA867A400DFCB24 /* Document View Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2059AE92CA8679A00DFCB24 /* Document View Model.swift */; };
+		B2059AEC2CA9596200DFCB24 /* Edition View Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2059AEB2CA9595E00DFCB24 /* Edition View Model.swift */; };
+		B2059AEE2CA959C900DFCB24 /* Edition Managed Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2059AED2CA959C300DFCB24 /* Edition Managed Object.swift */; };
+		B2059AF02CA95BE400DFCB24 /* Default Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2059AEF2CA95BE400DFCB24 /* Default Data.swift */; };
+		B2059AF32CAAF39700DFCB24 /* Document List View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2059AF22CAAF39700DFCB24 /* Document List View.swift */; };
+		B211B6562CCA99150031A753 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211B6552CCA99150031A753 /* Document.swift */; };
 		B220AA712CA2AE5B00232D3C /* Message Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA702CA2AE5B00232D3C /* Message Box.swift */; };
 		B220AA852CA2CF5A00232D3C /* Input String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA742CA2CF5A00232D3C /* Input String.swift */; };
 		B220AA862CA2CF5A00232D3C /* Input Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AA772CA2CF5A00232D3C /* Input Float.swift */; };
@@ -36,12 +43,20 @@
 		B220AAA62CA2CFCC00232D3C /* Custom Collection View Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AAA42CA2CFCC00232D3C /* Custom Collection View Flow.swift */; };
 		B220AAA72CA2CFCC00232D3C /* Custom View Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AAA52CA2CFCC00232D3C /* Custom View Animations.swift */; };
 		B220AAA92CA2CFDF00232D3C /* Graph View Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220AAA82CA2CFDF00232D3C /* Graph View Class.swift */; };
+		B261EA262CB40AF600594470 /* Document Input View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261EA252CB40AF600594470 /* Document Input View.swift */; };
+		B27AF42A2CB56EA700B726F1 /* Auto Complete.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AF4292CB56EA700B726F1 /* Auto Complete.swift */; };
+		B27AF42E2CB56F4F00B726F1 /* Text Input Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AF42D2CB56F4F00B726F1 /* Text Input Wrappers.swift */; };
+		B27AF4302CB56F8C00B726F1 /* First Responder Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AF42F2CB56F8C00B726F1 /* First Responder Label.swift */; };
+		B27AF4352CB5701100B726F1 /* Enum Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AF4332CB5701100B726F1 /* Enum Picker.swift */; };
+		B27AF4362CB5701100B726F1 /* Table with Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AF4342CB5701100B726F1 /* Table with Collection.swift */; };
+		B27AF4372CB5701100B726F1 /* Scroll Picker Popup View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AF4322CB5701100B726F1 /* Scroll Picker Popup View.swift */; };
+		B27AF4382CB5701100B726F1 /* Scroll Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AF4312CB5701100B726F1 /* Scroll Picker.swift */; };
+		B27C7C0B2F0EB38200130824 /* SystemControl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B27C7C092F0EB38200130824 /* SystemControl.xcdatamodeld */; };
 		B27E2DB52C9B2B6B006AF358 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B27E2DAA2C9B2B6B006AF358 /* Preview Assets.xcassets */; };
 		B27E2DB62C9B2B6B006AF358 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B27E2DAD2C9B2B6B006AF358 /* Assets.xcassets */; };
 		B27E2DB72C9B2B6B006AF358 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DAE2C9B2B6B006AF358 /* ContentView.swift */; };
 		B27E2DBA2C9B2B6B006AF358 /* System Control App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DB22C9B2B6B006AF358 /* System Control App.swift */; };
 		B27E2DC02C9B2BF7006AF358 /* Notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = B27E2DBF2C9B2BF7006AF358 /* Notes.txt */; };
-		B27E2DC52C9B3178006AF358 /* Entity List.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DC42C9B3171006AF358 /* Entity List.swift */; };
 		B27E2DC72C9B3470006AF358 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DC62C9B3470006AF358 /* Persistence.swift */; };
 		B27E2DCA2C9B35B0006AF358 /* Paragraph Managed Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DC92C9B35A5006AF358 /* Paragraph Managed Object.swift */; };
 		B27E2DD12C9B3680006AF358 /* Core Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E2DD02C9B3680006AF358 /* Core Data.swift */; };
@@ -73,6 +88,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B2059AE72CA866A500DFCB24 /* Document Managed Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document Managed Object.swift"; sourceTree = "<group>"; };
+		B2059AE92CA8679A00DFCB24 /* Document View Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document View Model.swift"; sourceTree = "<group>"; };
+		B2059AEB2CA9595E00DFCB24 /* Edition View Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edition View Model.swift"; sourceTree = "<group>"; };
+		B2059AED2CA959C300DFCB24 /* Edition Managed Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edition Managed Object.swift"; sourceTree = "<group>"; };
+		B2059AEF2CA95BE400DFCB24 /* Default Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Default Data.swift"; sourceTree = "<group>"; };
+		B2059AF22CAAF39700DFCB24 /* Document List View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document List View.swift"; sourceTree = "<group>"; };
+		B211B6552CCA99150031A753 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		B220AA702CA2AE5B00232D3C /* Message Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message Box.swift"; sourceTree = "<group>"; };
 		B220AA722CA2CF5A00232D3C /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		B220AA732CA2CF5A00232D3C /* Image Capture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image Capture.swift"; sourceTree = "<group>"; };
@@ -102,6 +124,15 @@
 		B220AAA42CA2CFCC00232D3C /* Custom Collection View Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Collection View Flow.swift"; sourceTree = "<group>"; };
 		B220AAA52CA2CFCC00232D3C /* Custom View Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom View Animations.swift"; sourceTree = "<group>"; };
 		B220AAA82CA2CFDF00232D3C /* Graph View Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph View Class.swift"; sourceTree = "<group>"; };
+		B261EA252CB40AF600594470 /* Document Input View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document Input View.swift"; sourceTree = "<group>"; };
+		B27AF4292CB56EA700B726F1 /* Auto Complete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Auto Complete.swift"; sourceTree = "<group>"; };
+		B27AF42D2CB56F4F00B726F1 /* Text Input Wrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text Input Wrappers.swift"; sourceTree = "<group>"; };
+		B27AF42F2CB56F8C00B726F1 /* First Responder Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "First Responder Label.swift"; sourceTree = "<group>"; };
+		B27AF4312CB5701100B726F1 /* Scroll Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scroll Picker.swift"; sourceTree = "<group>"; };
+		B27AF4322CB5701100B726F1 /* Scroll Picker Popup View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scroll Picker Popup View.swift"; sourceTree = "<group>"; };
+		B27AF4332CB5701100B726F1 /* Enum Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum Picker.swift"; sourceTree = "<group>"; };
+		B27AF4342CB5701100B726F1 /* Table with Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Table with Collection.swift"; sourceTree = "<group>"; };
+		B27C7C0A2F0EB38200130824 /* SystemControl.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SystemControl.xcdatamodel; sourceTree = "<group>"; };
 		B27E2D902C9B2A01006AF358 /* SystemControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SystemControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B27E2DAA2C9B2B6B006AF358 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B27E2DAD2C9B2B6B006AF358 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,7 +140,6 @@
 		B27E2DB02C9B2B6B006AF358 /* SystemControl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SystemControl.entitlements; sourceTree = "<group>"; };
 		B27E2DB22C9B2B6B006AF358 /* System Control App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "System Control App.swift"; sourceTree = "<group>"; };
 		B27E2DBF2C9B2BF7006AF358 /* Notes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notes.txt; sourceTree = "<group>"; };
-		B27E2DC42C9B3171006AF358 /* Entity List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity List.swift"; sourceTree = "<group>"; };
 		B27E2DC62C9B3470006AF358 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B27E2DC92C9B35A5006AF358 /* Paragraph Managed Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Paragraph Managed Object.swift"; sourceTree = "<group>"; };
 		B27E2DD02C9B3680006AF358 /* Core Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core Data.swift"; sourceTree = "<group>"; };
@@ -151,6 +181,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B2059AF12CAAF37F00DFCB24 /* Main Views */ = {
+			isa = PBXGroup;
+			children = (
+				B2059AF22CAAF39700DFCB24 /* Document List View.swift */,
+				B261EA252CB40AF600594470 /* Document Input View.swift */,
+			);
+			name = "Main Views";
+			sourceTree = "<group>";
+		};
 		B27E2D872C9B2A01006AF358 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				B2801FD22C9C06F900F4E1F1 /* Standard Components */,
+				B2059AF12CAAF37F00DFCB24 /* Main Views */,
 			);
 			path = "Main App";
 			sourceTree = "<group>";
@@ -240,6 +280,13 @@
 		B2801FCE2C9C060300F4E1F1 /* Reusable UIKit Components */ = {
 			isa = PBXGroup;
 			children = (
+				B27AF4312CB5701100B726F1 /* Scroll Picker.swift */,
+				B27AF4322CB5701100B726F1 /* Scroll Picker Popup View.swift */,
+				B27AF4332CB5701100B726F1 /* Enum Picker.swift */,
+				B27AF4342CB5701100B726F1 /* Table with Collection.swift */,
+				B27AF42F2CB56F8C00B726F1 /* First Responder Label.swift */,
+				B27AF42D2CB56F4F00B726F1 /* Text Input Wrappers.swift */,
+				B27AF4292CB56EA700B726F1 /* Auto Complete.swift */,
 				B220AA722CA2CF5A00232D3C /* Banner.swift */,
 				B220AA732CA2CF5A00232D3C /* Image Capture.swift */,
 				B220AA742CA2CF5A00232D3C /* Input String.swift */,
@@ -274,9 +321,11 @@
 		B2801FCF2C9C064D00F4E1F1 /* Standard Components */ = {
 			isa = PBXGroup;
 			children = (
+				B211B6552CCA99150031A753 /* Document.swift */,
 				B2801FD32C9C0E9A00F4E1F1 /* MyApp.swift */,
-				B27E2DC42C9B3171006AF358 /* Entity List.swift */,
 				B27E2DC62C9B3470006AF358 /* Persistence.swift */,
+				B2801FDE2C9C106E00F4E1F1 /* Master Data.swift */,
+				B2059AEF2CA95BE400DFCB24 /* Default Data.swift */,
 				B2801FD42C9C0E9A00F4E1F1 /* Declarations.swift */,
 				B2801FD52C9C0E9A00F4E1F1 /* Config.swift */,
 				B2801FD62C9C0E9A00F4E1F1 /* User Defaults.swift */,
@@ -287,6 +336,8 @@
 		B2801FD12C9C069300F4E1F1 /* Managed Objects */ = {
 			isa = PBXGroup;
 			children = (
+				B2059AE72CA866A500DFCB24 /* Document Managed Object.swift */,
+				B2059AED2CA959C300DFCB24 /* Edition Managed Object.swift */,
 				B27E2DC92C9B35A5006AF358 /* Paragraph Managed Object.swift */,
 			);
 			name = "Managed Objects";
@@ -295,9 +346,9 @@
 		B2801FD22C9C06F900F4E1F1 /* Standard Components */ = {
 			isa = PBXGroup;
 			children = (
-				B2801FDE2C9C106E00F4E1F1 /* Master Data.swift */,
 				B27E2DAD2C9B2B6B006AF358 /* Assets.xcassets */,
 				B27E2DB22C9B2B6B006AF358 /* System Control App.swift */,
+				B27C7C092F0EB38200130824 /* SystemControl.xcdatamodeld */,
 			);
 			name = "Standard Components";
 			sourceTree = "<group>";
@@ -313,6 +364,8 @@
 		B2801FE02C9C11A000F4E1F1 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				B2059AE92CA8679A00DFCB24 /* Document View Model.swift */,
+				B2059AEB2CA9595E00DFCB24 /* Edition View Model.swift */,
 				B2801FE12C9C11B700F4E1F1 /* Paragraph View Model.swift */,
 			);
 			name = "View Models";
@@ -392,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2059AF02CA95BE400DFCB24 /* Default Data.swift in Sources */,
 				B2801F912C9C01AD00F4E1F1 /* Link Presentation.swift in Sources */,
 				B2801F922C9C01AD00F4E1F1 /* Day Number.swift in Sources */,
 				B2801F932C9C01AD00F4E1F1 /* iCloud.swift in Sources */,
@@ -399,8 +453,12 @@
 				B2801F952C9C01AD00F4E1F1 /* Utility.swift in Sources */,
 				B2801F962C9C01AD00F4E1F1 /* Utility Extension.swift in Sources */,
 				B2801F972C9C01AD00F4E1F1 /* My Image.swift in Sources */,
+				B2059AEE2CA959C900DFCB24 /* Edition Managed Object.swift in Sources */,
+				B27C7C0B2F0EB38200130824 /* SystemControl.xcdatamodeld in Sources */,
+				B2059AEA2CA867A400DFCB24 /* Document View Model.swift in Sources */,
 				B2801FC82C9C030C00F4E1F1 /* Key Action Enumeration.swift in Sources */,
 				B2801F982C9C01AD00F4E1F1 /* Other Extensions.swift in Sources */,
+				B27AF42E2CB56F4F00B726F1 /* Text Input Wrappers.swift in Sources */,
 				B2801F992C9C01AD00F4E1F1 /* Local Authentication.swift in Sources */,
 				B2801F9A2C9C01AD00F4E1F1 /* Constraint.swift in Sources */,
 				B2801F9B2C9C01AD00F4E1F1 /* String Extensions.swift in Sources */,
@@ -408,11 +466,14 @@
 				B2801FE22C9C11BE00F4E1F1 /* Paragraph View Model.swift in Sources */,
 				B2801FD72C9C0E9A00F4E1F1 /* Config.swift in Sources */,
 				B2801FD82C9C0E9A00F4E1F1 /* User Defaults.swift in Sources */,
+				B27AF4302CB56F8C00B726F1 /* First Responder Label.swift in Sources */,
+				B2059AE82CA866B100DFCB24 /* Document Managed Object.swift in Sources */,
 				B2801FD92C9C0E9A00F4E1F1 /* MyApp.swift in Sources */,
 				B220AA852CA2CF5A00232D3C /* Input String.swift in Sources */,
 				B220AA862CA2CF5A00232D3C /* Input Float.swift in Sources */,
 				B220AA872CA2CF5A00232D3C /* input Number Mac.swift in Sources */,
 				B220AAA92CA2CFDF00232D3C /* Graph View Class.swift in Sources */,
+				B261EA262CB40AF600594470 /* Document Input View.swift in Sources */,
 				B220AA882CA2CF5A00232D3C /* Input Title.swift in Sources */,
 				B220AA892CA2CF5A00232D3C /* Date Picker Input.swift in Sources */,
 				B220AA8A2CA2CF5A00232D3C /* Multi Select Picker Input.swift in Sources */,
@@ -436,20 +497,27 @@
 				B220AA942CA2CF5A00232D3C /* Toolbar View.swift in Sources */,
 				B220AA952CA2CF5A00232D3C /* Input Toggle.swift in Sources */,
 				B220AA962CA2CF5A00232D3C /* List Tile View.swift in Sources */,
+				B211B6562CCA99150031A753 /* Document.swift in Sources */,
 				B220AA972CA2CF5A00232D3C /* Inset View.swift in Sources */,
 				B2801FDD2C9C0EFA00F4E1F1 /* Version.swift in Sources */,
 				B2801FDA2C9C0E9A00F4E1F1 /* Declarations.swift in Sources */,
+				B27AF42A2CB56EA700B726F1 /* Auto Complete.swift in Sources */,
 				B2801F9D2C9C01AD00F4E1F1 /* Backup.swift in Sources */,
 				B2801F9E2C9C01AD00F4E1F1 /* Date Extensions.swift in Sources */,
 				B27E2DD12C9B3680006AF358 /* Core Data.swift in Sources */,
 				B27E2DCA2C9B35B0006AF358 /* Paragraph Managed Object.swift in Sources */,
 				B2801FDF2C9C106E00F4E1F1 /* Master Data.swift in Sources */,
 				B27E2DB72C9B2B6B006AF358 /* ContentView.swift in Sources */,
-				B27E2DC52C9B3178006AF358 /* Entity List.swift in Sources */,
+				B2059AEC2CA9596200DFCB24 /* Edition View Model.swift in Sources */,
 				B220AA712CA2AE5B00232D3C /* Message Box.swift in Sources */,
 				B2801F812C9C018B00F4E1F1 /* Themes.swift in Sources */,
 				B2801F822C9C018B00F4E1F1 /* Palette.swift in Sources */,
 				B2801F7E2C9BF4DF00F4E1F1 /* Object Model.swift in Sources */,
+				B2059AF32CAAF39700DFCB24 /* Document List View.swift in Sources */,
+				B27AF4352CB5701100B726F1 /* Enum Picker.swift in Sources */,
+				B27AF4362CB5701100B726F1 /* Table with Collection.swift in Sources */,
+				B27AF4372CB5701100B726F1 /* Scroll Picker Popup View.swift in Sources */,
+				B27AF4382CB5701100B726F1 /* Scroll Picker.swift in Sources */,
 				B27E2DBA2C9B2B6B006AF358 /* System Control App.swift in Sources */,
 				B27E2DC72C9B3470006AF358 /* Persistence.swift in Sources */,
 			);
@@ -511,7 +579,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -568,7 +635,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -582,20 +648,23 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SystemControl/SystemControl.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SystemControl/Preview Content\"";
+				DEVELOPMENT_TEAM = 3T7CT2S464;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "System Control";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MarcShearer.SystemControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -613,20 +682,23 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SystemControl/SystemControl.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SystemControl/Preview Content\"";
+				DEVELOPMENT_TEAM = 3T7CT2S464;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "System Control";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MarcShearer.SystemControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -660,6 +732,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B27C7C092F0EB38200130824 /* SystemControl.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B27C7C0A2F0EB38200130824 /* SystemControl.xcdatamodel */,
+			);
+			currentVersion = B27C7C0A2F0EB38200130824 /* SystemControl.xcdatamodel */;
+			path = SystemControl.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B27E2D882C9B2A01006AF358 /* Project object */;
 }

@@ -7,13 +7,13 @@
 
 import UIKit
 
-class FirstResponderLabel: UILabel, ScorecardResponder {
-    var responderDelegate: ScorecardResponderDelegate?
+class FirstResponderLabel: UILabel, DocumentResponder {
+    var responderDelegate: DocumentResponderDelegate?
     var view: UIView?
     
     public var updateFocus: Bool = false
     
-    init(from responderDelegate: ScorecardResponderDelegate? = nil, view: UIView? = nil) {
+    init(from responderDelegate: DocumentResponderDelegate? = nil, view: UIView? = nil) {
         self.responderDelegate = responderDelegate
         self.view = view
         super.init(frame: CGRect())

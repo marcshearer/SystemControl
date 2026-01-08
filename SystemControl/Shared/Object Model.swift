@@ -21,13 +21,17 @@ public class Model {
     }
 }
 
-public class ViewModel: NSObject {
+@objcMembers public class ViewModel: NSObject, ViewModelProtocol {
     
     public var entity: Entity? = nil
+    public var id: UUID { fatalError("Must be overridden") }
     @Published public var managedObject: NSManagedObject? = nil
-    public var newManagedObject: NSManagedObject? = nil
-    public var masterData: [ViewModel] = []
-
+    public var masterData: WrappedArray!
+    
+    public var newManagedObject: NSManagedObject {
+        fatalError("Must be overridden")
+    }
+    
     public func save() {
         if self.isNew {
             insert(viewModel: self)
@@ -63,51 +67,53 @@ public class ViewModel: NSObject {
     
     public func insert(viewModel: ViewModel) {
         assert(viewModel.isNew, "Cannot insert \(viewModel.entity?.name ?? "Entity") which already has a managed object")
-        assert(viewModel.exists, "\(viewModel.entity?.name ?? "Entity") already exists and cannot be created")
+        assert(!viewModel.exists, "\(viewModel.entity?.name ?? "Entity") already exists and cannot be created")
         viewModel.beforeInsert()
+        let newMO = viewModel.newManagedObject
         CoreData.update {
-            viewModel.managedObject = viewModel.newManagedObject
+            viewModel.managedObject = newMO
             viewModel.updateMO()
             
-            self.masterData.append(viewModel)
+            viewModel.masterData.array.append(viewModel)
         }
     }
     
     public func remove(viewModel: ViewModel) {
         assert(!viewModel.isNew, "Cannot remove \(viewModel.entity?.name ?? "Entity") which doesn't already have a managed object")
-        assert(!viewModel.exists, "\(viewModel.entity?.name ?? "Entity") does not exist and cannot be deleted")
+        assert(viewModel.exists, "\(viewModel.entity?.name ?? "Entity") does not exist and cannot be deleted")
         viewModel.beforeRemove()
         CoreData.update {
             CoreData.context.delete(viewModel.managedObject!)
-            if let index = viewModel.masterData.firstIndex(where: {$0 == viewModel}) {
-                viewModel.masterData.remove(at: index)
+            if let index = viewModel.masterData.array.firstIndex(where: {$0 == viewModel}) {
+                viewModel.masterData.array.remove(at: index)
             }
         }
     }
     
     public func save(viewModel: ViewModel) {
         assert(!viewModel.isNew, "Cannot save \(viewModel.entity?.name ?? "Entity") which doesn't already have a managed object")
-        assert(!viewModel.exists, "\(viewModel.entity?.name ?? "Entity") does not exist and cannot be updated")
+        assert(viewModel.exists, "\(viewModel.entity?.name ?? "Entity") does not exist and cannot be updated")
         viewModel.beforeSave()
         if viewModel.changed {
             CoreData.update {
                 viewModel.updateMO()
             }
-            if let index = viewModel.masterData.firstIndex(where: {$0 == viewModel}) {
-                viewModel.masterData[index] = viewModel
+            if let index = viewModel.masterData.array.firstIndex(where: {$0 == viewModel}) {
+                viewModel.masterData.array[index] = viewModel
             }
         }
     }
+    
     var changed: Bool {
         get {
             var result = false
             if let entity = entity {
-                entity.forEach { (name, type) in
+                entity.forEach { (name, moName, type, _) in
                     if let managedObject = managedObject {
                         let moValue = managedObject.value(forKey: name)
                         let vmValue = self.value(forKey: name)
                         switch type {
-                        case .int:
+                        case .int16, .int32, .int64:
                             if let vmValue = vmValue as? Int, let moValue = moValue as? Int {
                                 if vmValue != moValue {
                                     result = true
@@ -143,8 +149,12 @@ public class ViewModel: NSObject {
                                     result = true
                                 }
                             }
-                        case .notSupported:
-                            fatalError("Attribute type not supported")
+                        case .attributedString:
+                            if let vmValue = vmValue as? AttributedString, let moValue = moValue as? AttributedString {
+                                if vmValue != moValue {
+                                    result = true
+                                }
+                            }
                         }
                     } else {
                         result = true
@@ -158,37 +168,54 @@ public class ViewModel: NSObject {
     }
     
     func revert() {
-        entity?.forEach { (name, type) in
+        entity?.forEach { (name, moName, type, isOptional) in
             if let moValue = managedObject?.value(forKey: name) {
                 self.setValue(moValue, forKey: name)
             } else {
-                fatalError("Invalid value in view model")
+                if isOptional {
+                    self.setValue(nil, forKey: name)
+                } else {
+                    fatalError("Invalid value in view model")
+                }
             }
         }
     }
     
     func copy(from: ViewModel) {
-        entity?.forEach { (name, type) in
+        entity?.forEach { (name, moName, type, isOptional) in
             if let fromValue = from.value(forKey: name) {
                 self.setValue(fromValue, forKey: name)
             } else {
-                fatalError("Invalid value in source view model")
+                if isOptional {
+                    self.setValue(nil, forKey: name)
+                } else {
+                    fatalError("Invalid value in view model")
+                }
             }
         }
         self.managedObject = from.managedObject
     }
     
     func updateMO() {
-        entity?.forEach { (name, type) in
-            if let vmValue = self.value(forKey: name), let managedObject = managedObject {
-                managedObject.setValue(vmValue, forKey: name)
-            } else {
-                fatalError("Invalid value in source view model")
+        entity?.forEach { (name, moName, type, isOptional) in
+            if let managedObject = managedObject {
+                if let vmValue = self.value(forKey: name) {
+                    managedObject.setValue(vmValue, forKey: name)
+                } else {
+                    if isOptional {
+                        managedObject.setValue(nil, forKey: name)
+                    } else {
+                        fatalError("Invalid value in view model")
+                    }
+                }
             }
         }
     }
-    
-    
+}
+
+public protocol ViewModelProtocol: Identifiable {
+    var id: UUID {get}
+    var newManagedObject: NSManagedObject {get}
 }
 
 public class Entity {
@@ -213,9 +240,9 @@ public class Entity {
     }
     
     
-    func forEach(action: (String, EntityAttributeType)->()) {
+    func forEach(action: (String, String, EntityAttributeType, Bool)->()) {
         for attribute in attributes {
-            action(attribute.equivalent ?? attribute.name, attribute.equivalentType)
+            action(attribute.name, attribute.moName, attribute.type, attribute.isOptional)
         }
     }
     
@@ -223,111 +250,78 @@ public class Entity {
 
 public class Attribute {
     var name: String = ""
-    var attributeType: NSAttributeType = .stringAttributeType
+    var moName: String = ""
+    var type: EntityAttributeType = .string
     var isOptional: Bool = false
-    var equivalent: String? = nil
-    var equivalentType: EntityAttributeType = .notSupported
+    var opaque: Bool = true
     
     public var property: NSAttributeDescription {
         get {
             let result = NSAttributeDescription()
-            result.name = name
-            result.attributeType = attributeType
+            result.name = moName
+            result.attributeType = type.nsAttributeType
             result.isOptional = isOptional
+            if type == .attributedString {
+                result.attributeValueClassName = "AttributedString"
+                result.valueTransformerName = "AttributedStringToData"
+            }
             return result
         }
     }
     
-    convenience init(_ name: String, _ type: NSAttributeType, isOptional: Bool = false, equivalent: String? = nil, equivalentType: EntityAttributeType? = nil) {
+    convenience init(_ name: String, _ type: EntityAttributeType, isOptional: Bool = false, suffix: String = "") {
         self.init()
         self.name = name
-        self.attributeType = type
+        self.moName = name + suffix
+        self.type = type
         self.isOptional = isOptional
-        self.equivalent = equivalent
-        self.equivalentType = equivalentType ?? EntityAttributeType(type: type)
+        self.opaque = opaque
     }
 }
     
 public enum EntityAttributeType {
-    case int
+    case int16
+    case int32
+    case int64
     case string
     case boolean
     case date
     case float
     case uuid
-    case notSupported
+    case attributedString
     
-    init(type: NSAttributeType) {
-        switch type {
-        case .integer16AttributeType, .integer32AttributeType, .integer64AttributeType:
-            self = .int
-        case .stringAttributeType:
-            self = .string
-        case .booleanAttributeType:
-            self = .boolean
-        case .dateAttributeType:
-            self = .date
-        case .floatAttributeType:
-            self = .float
-        case .UUIDAttributeType:
-            self = .uuid
-        default:
-            self = .notSupported
+    var nsAttributeType: NSAttributeType {
+        get {
+            switch self {
+            case .int16:            return .integer16AttributeType
+            case .int32:            return .integer32AttributeType
+            case .int64:            return .integer64AttributeType
+            case .string:           return .stringAttributeType
+            case .boolean:          return .booleanAttributeType
+            case .date:             return .dateAttributeType
+            case .float:            return .floatAttributeType
+            case .uuid:             return .UUIDAttributeType
+            case .attributedString: return .transformableAttributeType
+            }
         }
     }
 }
 
-@propertyWrapper public struct IntProperty<RowType: NSManagedObject, IntType: BinaryInteger> {
-    public let key: ReferenceWritableKeyPath<RowType, IntType>
-    @available(*, unavailable) public var wrappedValue: Int {
-        get { fatalError("This wrapper only works on instance properties of classes") }
-        set { fatalError("This wrapper only works on instance properties of classes") }
-    }
-    
-    init(_ key: ReferenceWritableKeyPath<RowType, IntType>) {
-        self.key = key
-    }
-    
-    public static subscript(
-        _enclosingInstance instance: RowType,
-        wrapped wrappedKeyPath: ReferenceWritableKeyPath<RowType, Int>,
-        storage storageKeyPath: ReferenceWritableKeyPath<RowType, Self>
-    ) -> Int {
-        get {
-            let propertyWrapper = instance[keyPath: storageKeyPath]
-            return Int(instance[keyPath: propertyWrapper.key])
-        }
-        set {
-            let propertyWrapper = instance[keyPath: storageKeyPath]
-            instance[keyPath: propertyWrapper.key] = IntType(newValue)
-        }
-    }
+public class WrappedArray {
+    public var array: [ViewModel] = []
 }
 
-@propertyWrapper public struct EnumProperty<RowType: NSManagedObject, IntType: BinaryInteger, EnumType: RawRepresentable> where EnumType.RawValue == IntType {
-    public let key: ReferenceWritableKeyPath<RowType, IntType>
-    @available(*, unavailable) public var wrappedValue: EnumType {
-        get { fatalError("This wrapper only works on instance properties of classes") }
-        set { fatalError("This wrapper only works on instance properties of classes") }
+@objc(AttributedStringToData)
+class AttributedStringToData: ValueTransformer {
+    
+    override func transformedValue(_ value: Any?) -> Any? {
+        let data = try! NSKeyedArchiver.archivedData(withRootObject: NSAttributedString(value as! AttributedString), requiringSecureCoding: false)
+        return data
     }
     
-    init(_ key: ReferenceWritableKeyPath<RowType, IntType>) {
-        self.key = key
-    }
-    
-    public static subscript(
-        _enclosingInstance instance: RowType,
-        wrapped wrappedKeyPath: ReferenceWritableKeyPath<RowType, EnumType>,
-        storage storageKeyPath: ReferenceWritableKeyPath<RowType, Self>
-    ) -> EnumType {
-        get {
-            let propertyWrapper = instance[keyPath: storageKeyPath]
-            return EnumType(rawValue: instance[keyPath: propertyWrapper.key])!
-        }
-        set {
-            let propertyWrapper = instance[keyPath: storageKeyPath]
-            let key = propertyWrapper.key
-            instance[keyPath: propertyWrapper.key] = newValue.rawValue
-        }
+    override func reverseTransformedValue(_ value: Any?) -> Any? {
+        let dataValue = value as! Data
+        let data = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSAttributedString.self], from: dataValue)
+        return AttributedString(data as! NSAttributedString)
     }
 }

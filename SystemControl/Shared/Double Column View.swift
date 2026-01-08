@@ -1,6 +1,6 @@
 //
 //  Double Column View.swift
-//  BridgeScore
+//  SystemControl
 //
 //  Created by Marc Shearer on 05/02/2022.
 //

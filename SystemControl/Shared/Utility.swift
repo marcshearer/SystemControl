@@ -392,7 +392,7 @@ class Utility {
     // MARK: - Animate ============================================================================== -
     #if canImport(UIKit)
     public static var _animating = false
-    public static var animating:Bool { get { return _animating } }
+    public static var animating: Bool { _animating }
     
     public class func animate(if animate: Bool = true, parent: UIView, duration: TimeInterval = 0.5, curve: UIView.AnimationCurve = .linear, afterDelay: TimeInterval? = 0.0, layout: Bool = true, completion: (()->())? = nil, animations: @escaping ()->()) {
         if animate {

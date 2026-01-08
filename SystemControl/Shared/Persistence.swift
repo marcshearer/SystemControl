@@ -1,6 +1,6 @@
 //
 //  Persistence.swift
-//  BridgeScore
+//  SystemControl
 //
 //  Created by Marc Shearer on 20/01/2022.
 //
@@ -30,7 +30,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "SystemControl", managedObjectModel: objectModel.model)
+        container = NSPersistentContainer(name: "SystemControl", managedObjectModel: MyApp.objectModel.model)
           
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
@@ -42,7 +42,7 @@ struct PersistenceController {
             let storeDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup)!
             
             // Create a store description for a local store
-            let storeLocation = storeDirectory.appendingPathComponent("BridgeScore-\(MyApp.expectedDatabase.name).sqlite")
+            let storeLocation = storeDirectory.appendingPathComponent("SystemControl-\(MyApp.expectedDatabase.name).sqlite")
             let storeDescription = NSPersistentStoreDescription(url: storeLocation)
             storeDescription.cloudKitContainerOptions =
                 NSPersistentCloudKitContainerOptions(

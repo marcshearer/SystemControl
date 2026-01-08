@@ -8,38 +8,87 @@
 import CoreData
 
 let paragraphEntity = Entity( "Paragraph",
-                             ParagraphMO.self,
-                             Attribute("paragraphId",            .UUIDAttributeType),
-                             Attribute("nextParagraphId",        .UUIDAttributeType),
-                             Attribute("firstChildParagraphId",  .UUIDAttributeType),
-                             Attribute("document",              .stringAttributeType),
-                             Attribute("edition",               .stringAttributeType),
-                             Attribute("iterationRaw",          .integer32AttributeType),
-                             Attribute("enumRaw",               .integer16AttributeType),
-                             Attribute("name",                  .stringAttributeType),
-                             Attribute("content",               .stringAttributeType))
+                              ParagraphMO.self,
+                              Attribute("paragraphId",      .uuid),
+                              Attribute("nextParagraph",  .uuid, isOptional: true, suffix: "Id"),
+                              Attribute("childParagraph", .uuid, isOptional: true, suffix: "Id"),
+                              Attribute("document",       .uuid, suffix: "Id"),
+                              Attribute("edition",        .uuid, suffix: "Id"),
+                              Attribute("iteration",        .int16, suffix: "16"),
+                              Attribute("name",             .string),
+                              Attribute("content",          .attributedString, isOptional: true))
 
 @objc(ParagraphMO)
 public class ParagraphMO: NSManagedObject, ManagedObject, Identifiable {
     
     public static let entity = paragraphEntity
     
+    public var id: UUID { self.paragraphId }
     @NSManaged public var paragraphId: UUID
-    @NSManaged public var nextParagraphId: UUID
-    @NSManaged public var firstChildParagraphId: UUID
-    @NSManaged public var document: String
-    @NSManaged public var edition: String
-    @NSManaged public var iterationRaw: Int32   ; @IntProperty(\ParagraphMO.iterationRaw) public var iteration: Int
+    @NSManaged public var nextParagraphId: UUID?
+    @NSManaged public var childParagraphId: UUID?
+    @NSManaged public var documentId: UUID
+    @NSManaged public var editionId: UUID
+    @NSManaged public var iteration16: Int16
     @NSManaged public var name: String
-    @NSManaged public var content: String
-    @NSManaged public var enumRaw: Int16        ; @EnumProperty(\ParagraphMO.enumRaw) public var test: Test
-    
+    @NSManaged public var content: NSAttributedString?
+
     convenience init() {
         self.init(context: CoreData.context)
+        self.paragraphId = UUID()
     }
-}
-
-public enum Test: Int16 {
-    case x
-    case y
+    
+    @objc public var nextParagraph: ParagraphViewModel? {
+        get {
+            if let nextParagraphId = nextParagraphId {
+                ParagraphViewModel.paragraph(id: nextParagraphId) ?? ParagraphViewModel()
+            } else {
+                ParagraphViewModel()
+            }
+        }
+        set {
+            nextParagraphId = newValue?.paragraphId
+        }
+    }
+    
+    @objc public var childParagraph: ParagraphViewModel? {
+        get {
+            if let childParagraphId = childParagraphId {
+                ParagraphViewModel.paragraph(id: childParagraphId) ?? ParagraphViewModel()
+            } else {
+                ParagraphViewModel()
+            }
+        }
+        set {
+            childParagraphId = newValue?.paragraphId
+        }
+    }
+    
+    @objc public var document: DocumentViewModel {
+        get {
+            DocumentViewModel.document(id: documentId) ?? DocumentViewModel()
+        }
+        set {
+            documentId = newValue.documentId
+        }
+    }
+    
+    @objc public var edition: EditionViewModel {
+        get {
+            EditionViewModel.edition(id: editionId) ?? EditionViewModel()
+        }
+        set {
+            editionId = newValue.editionId
+        }
+    }
+    
+    @objc public var iteration: Int {
+        get { Int(self.iteration16) }
+        set {self.iteration16 = Int16(newValue) }
+    }
+    
+    public override var description: String {
+        "Scorecard: \(self.name)"
+    }
+    public override var debugDescription: String { self.description }
 }
